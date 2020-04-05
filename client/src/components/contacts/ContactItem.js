@@ -8,6 +8,7 @@ const ContactItem = ({contact}) => {
     const {name,id,email,phone,type}= contact;
     const onClick = () =>{
         ContactContext.deleteContact(id);
+        ContactContext.clearCurrent();
     }
     return (
         <div className='card bg-light'>
@@ -24,7 +25,7 @@ const ContactItem = ({contact}) => {
 
         </ul>
         <p>
-            <button className='btn btn-dark btn-sm'>Edit</button>
+            <button className='btn btn-dark btn-sm' onClick={()=>ContactContext.setCurrent(contact)}>Edit</button>
             <button className='btn btn-danger btn-sm' onClick={onClick}>Delete</button>
         </p>
         </div>
